@@ -1,0 +1,1 @@
+hola koders, esta es la funcion de write file sinc

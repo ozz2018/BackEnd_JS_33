@@ -1,0 +1,16 @@
+{
+  "name": "p5_nombresreduce",
+  "version": "1.0.0",
+  "description": "Practica 5. Lista nombres con while",
+  "main": "index.js",
+  "scripts": {
+    "start": "node practica5_NamesListReduce.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "devOzz",
+  "license": "ISC",
+  "dependencies": {
+    "@types/prompt-sync": "^4.2.3",
+    "prompt-sync": "^4.2.0"
+  }
+}
