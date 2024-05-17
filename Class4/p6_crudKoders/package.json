@@ -1,0 +1,11 @@
+{
+  "name": "p6_crudkoders",
+  "version": "1.0.0",
+  "description": "Practica 6 crud koders",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ozz",
+  "license": "ISC"
+}
