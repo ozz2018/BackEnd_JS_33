@@ -1,0 +1,105 @@
+const fs = require ('fs');
+
+const dataFile = "kodersList.json"
+
+function init() {
+    const existFile = fs.existsSync(dataFile);
+
+    if (!existFile) {
+        fs.writeFileSync(dataFile,JSON.stringify({ koders: []}));
+        console.log("Creaste una nueva lista de koders")
+    };
+};
+
+function getKoders() {
+    const content = fs.readFileSync(dataFile,"utf8");
+    return JSON.parse(content).koders;
+}
+
+
+function updateKoders(kodersArray) {
+    const newKodersList = { koders : kodersArray};
+    const newKLAsString = JSON.stringify(newKodersList)
+    fs.writeFileSync(dataFile,newKLAsString);
+};
+
+function add (koder) {
+    const kodersArray = getKoders();
+    kodersArray.push(koder);
+    updateKoders(kodersArray)
+}
+
+function ls() {
+    const kodersArray = getKoders();
+
+    if (!kodersArray.length){
+        console.log("Aun no hay ningún koder en la lista 🫠")
+        process.exit(0);
+    }
+
+    kodersArray.forEach((koder, i) => {
+        console.log (i, "->", koder)
+    });
+};
+
+
+function rm (koderIndex) {
+const kodersArray = getKoders();
+kodersArray.splice(koderIndex,1);
+updateKoders(kodersArray);
+};
+
+function reset() {
+    updateKoders([])
+};
+
+function main() {
+    const command = process.argv[2];
+    const argument = process.argv[3];
+    
+    init();
+
+    if (!command) {
+        console.log("Opciones para interactuar con el programa: [ls: para ver la lista, rm: para eliminar un koder, add: para añadir un koder y reset: reinicia la lista]")
+        process.exit(0)
+    } else if ( command.toLowerCase() === "ls") {
+        ls()
+    } else if ( command.toLowerCase() === "add" ) {
+        if (!argument) {
+            console.error("No hay información para agregar un nuevo Koder 😭");
+            process.exit(1)
+        }
+        add(argument);
+        ls();
+        console.log("Agregaste a un nuevo Koder 🥳")
+    } else if ( command.toLowerCase() === "rm") {
+        if (!argument) {
+            console.error("No seleccionaste a quien eliminar")
+            process.exit(1)
+        }
+        const koderIdx = parseInt(argument);
+
+        if (isNaN(koderIdx)) {
+            console.error("Esto no es una posición valida 🤨");
+            process.exit(1)
+        }
+        
+        const kodersArray = getKoders();
+
+        if ( koderIdx < 0 || koderIdx >= kodersArray.length) {
+            console.error("Esto no es una posición valida 🤨")
+            process.exit(1)
+        }
+
+        rm(koderIdx);
+        ls()
+        console.log(`Jugaremos muevete luz verde... Jugador: ${koderIdx} fue eliminado 😵`);
+    } else if ( command.toLowerCase() === "reset") {
+        reset();
+        console.log("La lista fue reiniciada");
+    } else {
+        console.error("Comando invalido", command)
+    }
+};
+
+main();
