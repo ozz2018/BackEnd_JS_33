@@ -1,8 +1,17 @@
 const express = require('express')
 
 const fs = require('node:fs')
-const dataFileKo = 'kodersList.json';
-
+const dataFileKo = 'koders.json';
+const jsonKoder= [{
+    {
+        "name": "ozz",
+        "generation": 3,
+        "gender": "H",
+        "age": 39,
+        "isActive": true
+      }
+      
+}]
 
 const port = 8080
 const serverApp= express()
@@ -16,7 +25,12 @@ function init() {
       console.log('Se Creo una Nueva Lista de Koders');
     }
   }
+  function getKoders(){
 
+  }
+function updatekoders(){
+
+}
 
 serverApp.get((require, response)=>{
 })

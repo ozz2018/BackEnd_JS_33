@@ -1,10 +1,10 @@
 {
   "koders": [
     {
-      "name": "Tim Berners-Lee",
+      "name": "TimTom",
       "generation": 3,
-      "gender": "M",
-      "age": 67,
+      "gender": "H",
+      "age": 27,
       "isActive": true
     }
   ]
