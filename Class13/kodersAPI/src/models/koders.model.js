@@ -30,11 +30,11 @@ password:{
     type: String,
     required:true
 },
+createdAt: {
+    type: Date, // Use Date (uppercase) for the data type
+    default: Date.now // Function to set the default value
+  }
 
-createdAt:{
-    type:date,
-    default:Date.now
-}
 })
 
 module.exports= mongoose.model('modelName', schema)
