@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+//const generationModel = require('./generation.model')
 
 const modelName= 'koders'
 const schema = new mongoose.Schema({firstName:{
@@ -21,19 +22,20 @@ birthdate:{
     type: Date,
     required:false
 },
-/*generation:{
-    type: Number,
-    min:1,
-    max:100,
-},*/
+/*
+generation:{
+    type: mongoose.Schema.Types.ObjectId,   //relacion
+    ref: generations
+},
+*/
 password:{
     type: String,
     required:true
 },
 createdAt: {
-    type: Date, // Use Date (uppercase) for the data type
-    default: Date.now // Function to set the default value
-  }
+    type: Date, 
+    default: Date.now
+}
 
 })
 

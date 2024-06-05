@@ -6,11 +6,11 @@ function sign (playload){
     return jsonwebtoken.sign(playload,JWT_SECRET,{expiresIn:'1d' })
 }
 
-function veryfy(token){
+function verify(token){
     return jsonwebtoken.verify(token,JWT_SECRET )
 }
 
 module.exports={
     sign,
-    verify
+    verify,
 }
