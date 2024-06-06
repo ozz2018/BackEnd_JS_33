@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const generationModel = require('./generation.model')
+const generationModel = require('./generations.model')
 
 const modelName= 'koders'
 const schema = new mongoose.Schema({firstName:{
@@ -23,9 +23,9 @@ birthdate:{
     required:false
 },
 ///*
-generation:{
+generations:{
     type: mongoose.Schema.Types.ObjectId,   //relacion
-    ref: generation
+    ref: generations
 },
 //*/
 password:{

@@ -10,7 +10,7 @@ const schema= new mongoose.Schema({
     program:{
         type:String,
         required:true,
-        enum:['javascript',
+        enum:['javaScript',
                 'python',
                 'ios',
                 'android'
@@ -27,4 +27,4 @@ const schema= new mongoose.Schema({
 })
 
 
-module.exports=mongoose.model('generation',schema)
+module.exports=mongoose.model('generations',schema)
